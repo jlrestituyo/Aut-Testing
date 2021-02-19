@@ -1,3 +1,3 @@
 # python-Course
-# Selenium Web Driver 2
+# Selenium
 
