@@ -1,6 +1,7 @@
 from pytest import mark
 from test import calculadora as calc
 import requests
+from test import excel_util as eu
 
 @mark.ui
 def test_suma():
@@ -34,3 +35,18 @@ def test_provincias():
     response = requests.get(url).json()
     claves = response.keys()
     assert response['data'][0]['nombre'] == "Barahona"
+
+@mark.data
+def test_read_data_from_excel():
+    file_path = "./data/data.xlsx"
+    sheet_name = "test1"
+    data = eu.get_data(file = file_path , sheet = sheet_name)
+    print("\n\n")
+    print("DATA: ", data[0])
+
+
+    if data[1] == "Librerias de Python":
+        eu.write_data_to_excel(file_path, sheet_name, 2,3, "PASS")
+    else:
+        eu.write_data_to_excel(file_path, sheet_name, 2, 3, "FAILED")
+

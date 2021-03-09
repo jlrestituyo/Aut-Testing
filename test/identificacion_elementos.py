@@ -47,3 +47,6 @@ def test_delete_item_from_cart(item):
     assert car_empty.is_displayed()
 
     time.sleep(10)
+
+def wait_element_by_id(driver, id):
+    WebDriverWait(driver, timeout=20).until(lambda d: driver.find_element_by_id(id))
