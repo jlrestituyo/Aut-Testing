@@ -37,7 +37,7 @@ def test_provincias():
     assert 1 == 1
 
 @mark.data
-def test_read_data_from_excel():
+def read_data_from_excel():
     file_path = "./data/data.xlsx"
     sheet_name = "test1"
     data = eu.get_data(file = file_path , sheet = sheet_name)
